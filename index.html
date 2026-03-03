@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chikka Litti | Bistupur</title>
+
+<link href="Pic.png" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    transition:0.5s;
+}
+
+/* Dark Mode Light Version */
+.light-mode{
+    background:#f5f5f5;
+    color:#000;
+    
+}
+
+/* Navbar */
+nav{
+    position:fixed;
+    width:100%;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#000;
+    z-index:1000;
+}
+
+nav h2{
+    color:#00f2ff;
+    text-shadow:0 0 10px #00f2ff;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+.toggle-btn{
+    cursor:pointer;
+    padding:8px 15px;
+    background:#00f2ff;
+    border:none;
+    border-radius:20px;
+    
+}
+.toggle-btn{
+    margin-right:40px;   /* is value ko adjust kar sakte ho */
+}
+
+/* Hero */
+.hero{
+    height:100vh;
+    background:url('Pic.png') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:50px;
+    text-shadow:0 0 20px #00f2ff;
+}
+.neon-box{
+    padding:20px;
+    border:2px solid #00f2ff;
+    border-radius:12px;
+    box-shadow:0 0 15px #00f2ff;
+    text-align:center;
+
+    max-width:90%;
+    margin:auto;
+
+    overflow-wrap: break-word;   /* 👈 Ye line important hai */
+    word-break: break-word;      /* 👈 Ye bhi add karo */
+}
+
+/* Neon Border */
+.neon-box{
+    border:3px solid #00f2ff;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 20px #00f2ff;
+    margin:20px;
+}
+.neon-box p{
+    margin:8px 0;
+    font-size:16px;
+}
+@media(max-width:480px){
+    .neon-box p{
+        font-size:14px;
+    }
+}
+.neon-box a{
+    color:#00f2ff;
+    text-decoration:none;
+}
+
+.neon-box a:hover{
+    text-decoration:underline;
+}
+/* Sections */
+section{
+    padding:80px 10%;
+    text-align:center;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+/* Order System */
+.order-box{
+    max-width:400px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.order-box input, .order-box select{
+    padding:10px;
+    border-radius:10px;
+    border:none;
+}
+
+/* Button */
+.btn{
+    padding:10px;
+    border:none;
+    background:#00f2ff;
+    cursor:pointer;
+    border-radius:20px;
+}
+
+/* WhatsApp Button */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    font-size:20px;
+    text-decoration:none;
+}
+.html, body{
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+.main-content{
+    flex:1;
+}
+
+.footer{
+    background:#34495e;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+.menu-icon div{
+    width:30px;
+    height:3px;
+    background:white;
+    margin:6px 0;
+    transition:0.4s;
+}
+
+.menu-icon.active div:nth-child(1){
+    transform:rotate(-45deg) translate(-6px,6px);
+}
+
+.menu-icon.active div:nth-child(2){
+    opacity:0;
+}
+
+.menu-icon.active div:nth-child(3){
+    transform:rotate(45deg) translate(-6px,-6px);
+}
+
+/* Hamburger */
+.menu-icon{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1002;
+    cursor:pointer;
+}
+
+.menu-icon div{
+    width:28px;
+    height:3px;
+    background:white;
+    margin:6px 0;
+    transition:0.4s;
+}
+
+/* Animate to X */
+.menu-icon.active div:nth-child(1){
+    transform:rotate(-45deg) translate(-5px,6px);
+}
+.menu-icon.active div:nth-child(2){
+    opacity:0;
+}
+.menu-icon.active div:nth-child(3){
+    transform:rotate(45deg) translate(-5px,-6px);
+}
+
+/* Instagram Style Menu */
+.insta-menu{
+    position:fixed;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:0.5s ease;
+    z-index:1001;
+}
+
+.insta-menu.active{
+    top:0;
+}
+
+/* Menu Items */
+.insta-menu ul{
+    list-style:none;
+    text-align:center;
+    padding:0;
+}
+
+.insta-menu ul li{
+    margin:30px 0;
+}
+
+.insta-menu ul li a{
+    text-decoration:none;
+    font-size:35px;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.insta-menu ul li a:hover{
+    color:#00f2ff;
+    letter-spacing:3px;
+}
+#contact{
+    padding:80px 10%;
+    text-align:center;
+}
+
+#contact iframe{
+    margin-top:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+} 
+</style>
+ 
+</head>
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+    document.getElementById("icon").classList.toggle("active");
+}
+</script>
+
+<body>
+<!-- Hamburger Icon -->
+<div class="menu-icon" onclick="toggleMenu()" id="icon">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<!-- Hamburger -->
+<div class="menu-icon" onclick="toggleMenu()" id="icon">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<!--Style Menu -->
+<div class="insta-menu" id="menu">
+    <ul>
+        <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#memu"
+onclick="toggleMenu()">Menu</a></li>
+        <li><a href="#gallery"        
+onclick="toggleMenu()">Gallery</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <li><a href="#location"
+onclick="toggleMenu()">Locations</a></li>        
+</div>
+<nav>
+    <h2>Chikka Litti</h2>
+
+    <div class="nav-right">
+        <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+        <div class="menu-icon" onclick="toggleMenu()" id="icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero">
+    <div>
+        <h1>Welcome </h1>
+        <p>Best Taste in Bistupur</p>
+    </div>
+</div>
+
+<section id="about">
+    <div class="neon-box">
+        <h2>About Us</h2>
+        <p>📍 Contractors Area Cir, Opposite Tata Football Academy, Near Bottles, Ram Das Bhatta, Bistupur, Jamshedpur, Jharkhand 831001.</p>
+    </div>
+<section id="menu">
+    <div class="neon-box">
+        <h2>Menu🥯</h2>       
+         <p> Plane Litti.</p>
+         <p> Ghee Litti.</p>
+         <p> Chika Litti.</p>
+         <p> Litti Chokha .</p>
+         <p> Special Litti combo.</p>
+         </div>
+  
+<div class="neon-box">
+        <h2> Chicken 🐓 </h2>
+         <p>  Chicken Akelapan.</p>
+         <p> Chicken Parivarik.</p>
+         <p> Chicken Pakoda.</p>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="Pic1.jpg">
+        <img src="Pic2.jpg">
+        <img src="Pic3.jpg">
+        <img src="Pic4.jpg">
+    </div>
+</section>
+
+<section id="contact">
+    <div class="neon-box">
+        <h2>Contact 📞</h2>
+         <p> +91 9204291919 </p>
+         <p> +91 6203193008 </p>
+         <p>📧 
+<a href="mailto:chikalitti0666@gmail.com">
+chikalitti0666@gmail.com
+</a>
+</p>
+         
+  </div>
+</section>
+<section id="location">
+    <div class="neon-box">
+    <h2>Our Location</h2>
+    <p>📍Football Academy, Bistupur, Jamshedpur, 831001 </p>
+   
+   <a href="https://maps.app.goo.gl/yXGtHW6PbzrUoRt58" target="_blank">
+        <button class="btn">Open in Google Maps</button>
+    </a>
+</section>
+ 
+<body>
+
+<div class="main-content">
+
+    
+</div>
+
+<footer class="footer">
+    © 2026 Chikka Litti🥯🐔 | Made by <span class="name">𝓐𝓷𝓾𝓳 𝓿𝓮𝓻𝓶𝓪</span>👻
+</footer>
+
+</body>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp">💬</a>
+
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+
+<script>
+function toggleMode(){
+    document.body.classList.toggle("light-mode");
+}
+
+function playSound(){
+    document.getElementById("clickSound").play();
+    alert("Order Placed Successfully!");
+}
+</script>
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+    document.getElementById("icon").classList.toggle("active");
+}
+</script>
+
+</body>
+</html> 
